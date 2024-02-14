@@ -1,6 +1,6 @@
-package com.jpabook.jpamarket.domain;
+package com.jpamarket.domain;
 
-import com.jpabook.jpamarket.domain.Item.Item;
+import com.jpamarket.domain.Item.Item;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +13,11 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
     private int orderPrice; // 주문 당시 가격

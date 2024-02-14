@@ -1,4 +1,4 @@
-package com.jpabook.jpamarket;
+package com.jpamarket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

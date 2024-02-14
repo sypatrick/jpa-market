@@ -1,4 +1,4 @@
-package com.jpabook.jpamarket.domain;
+package com.jpamarket.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,16 +18,21 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
+    /**
+     * ManyToOne, OneToOne -> fetchtype default 가 EAGER.
+     * 수동으로 LAZY로 변경해줘야함
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
+
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)

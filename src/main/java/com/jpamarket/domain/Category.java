@@ -1,6 +1,6 @@
-package com.jpabook.jpamarket.domain;
+package com.jpamarket.domain;
 
-import com.jpabook.jpamarket.domain.Item.Item;
+import com.jpamarket.domain.Item.Item;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class Category {
     )
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
