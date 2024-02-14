@@ -1,6 +1,6 @@
-package com.jpabook.jpamarket.domain.Item;
+package com.jpamarket.domain.Item;
 
-import com.jpabook.jpamarket.domain.Category;
+import com.jpamarket.domain.Category;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
