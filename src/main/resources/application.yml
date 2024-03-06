@@ -2,12 +2,15 @@ spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/jpamarket;
     username: sa
-    password:
+# Mac
+#    password:
+    # 윈도우
+    password: 1234
     driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
 #        show_sql: true
@@ -16,6 +19,9 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+server:
+  port: 9090
 
 #decorator:
 #  datasource:
